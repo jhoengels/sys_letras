@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Formulario del tercero-->
+		<record model="ir.ui.view" id="view_sys_tercero_form">
+			<field name="name">sys tercero form</field>
+			<field name="model">sys.tercero</field>
+			<field name="arch" type="xml">
+			<form string="Nuevo registro" version="7.0">
+				<group col="4" colspan="2">
+					<field name="empresa"/>
+					<field name="name"/>
+					<field name="doc_numero"/>
+					<field name="telefono"/>
+					<field name="cliente"/>
+					<field name="proveedor"/>
+					<field name="active"/>
+					<field name="correo"/>
+					<field name="web"/>
+					<field name="puesto"/>
+				</group>
+				<notebook>
+					<page string="Contactos">
+						<field name="child_ids"/>
+					</page>
+					<page string="Direcciones">
+						<field name="direccion_tercero_ids"/>
+					</page>
+				</notebook>
+			</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_sys_tercero_tree">
+			<field name="name">sys tercero tree</field>
+			<field name="model">sys.tercero</field>
+			<field name="arch" type="xml">
+				<tree string="Cliente nuevo">
+					<field name="name"/>
+					<field name="doc_numero"/>
+					<field name="telefono"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_sys_direccion_tercero_tree">
+			<field name="name">sys direccion tercero tree</field>
+			<field name="model">sys.direccion.tercero</field>
+			<field name="arch" type="xml">
+				<tree string="Direcciones">
+					<field name="name"/>
+					<field name="direccion_id"/>
+					<field name="tercero_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_open_view_sys_tercero">       
+	     	<field name='name'>Registro Clientes</field>
+	      	<field name='res_model'>sys.tercero</field>
+	      	<field name='view_type'>form</field>
+	      	<field name='view_mode'>tree,form</field> 
+     	</record>
+
+     	<menuitem name="Letras" id="menu_sys_letras" sequence="10" />
+    	<menuitem name="Cliente" id="menu_sys_tercero_cliente" parent="menu_sys_letras" sequence="2" />
+    	<menuitem name="Clientes" parent="menu_sys_tercero_cliente" id="lista_sys_tercero_cliente" action="action_open_view_sys_tercero" sequence="3" />
+
+	</data>
+</openerp>
