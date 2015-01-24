@@ -24,7 +24,7 @@
 						<field name="child_ids"/>
 					</page>
 					<page string="Direcciones">
-						<field name="direccion_tercero_ids"/>
+						<field name="direccion_ids"/>
 					</page>
 				</notebook>
 			</form>
@@ -43,14 +43,29 @@
 			</field>
 		</record>
 
-		<record model="ir.ui.view" id="view_sys_direccion_tercero_tree">
-			<field name="name">sys direccion tercero tree</field>
-			<field name="model">sys.direccion.tercero</field>
+		<record model="ir.ui.view" id="view_sys_direccion_form">
+			<field name="name">sys direccion form</field>
+			<field name="model">sys.direccion</field>
+			<field name="arch" type="xml">
+			<form string="Nuevo registro" version="7.0">
+				<group col="4" colspan="2">
+					<field name="name"/>
+					<field name="tipo"/>
+					<field name="direccion"/>
+					<field name="telefono"/>
+				</group>
+			</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_sys_direccion_tree">
+			<field name="name">sys direccion tree</field>
+			<field name="model">sys.direccion</field>
 			<field name="arch" type="xml">
 				<tree string="Direcciones">
 					<field name="name"/>
-					<field name="direccion_id"/>
-					<field name="tercero_id"/>
+					<field name="tipo"/>
+					<field name="direccion"/>
 				</tree>
 			</field>
 		</record>
